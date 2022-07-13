@@ -27,7 +27,6 @@
     "ag-grid-angular": "^28.0.0",
     "ag-grid-community": "^28.0.2",
     "rxjs": "~7.5.0",
-    "survey-angular": "^1.9.39",
     "tslib": "^2.4.0",
     "zone.js": "~0.11.4"
   },

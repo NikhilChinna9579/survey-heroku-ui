@@ -1,0 +1,16 @@
+<mat-divider></mat-divider>
+<div *ngIf="showprogressbar">
+    <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+</div>
+<ag-grid-angular 
+class="ag-theme-alpine grid" 
+style="height: 600px;width:100%" 
+[rowData]="rowData" 
+[columnDefs]="columnDefs"
+[defaultColDef]="defaultColDefs"
+[pagination]="true"
+[paginationAutoPageSize]="true"
+[enableCellTextSelection]="true"
+[gridOptions]="gridOptions"
+>
+</ag-grid-angular>

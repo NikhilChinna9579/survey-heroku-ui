@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ag-grid-community/src/styles/ag-grid";
+@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine";
+@import "~ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat";
+@import "~ag-grid-community/src/styles/ag-theme-material/sass/legacy/ag-theme-material-v22-compat";
+html, body { width:auto;height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

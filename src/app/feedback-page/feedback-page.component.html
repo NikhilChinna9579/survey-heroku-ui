@@ -1,0 +1,90 @@
+<div class="container">
+    <div *ngIf="showprogressbar">
+        <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+        </div>
+    <mat-tab-group>
+  <mat-tab label="survey">
+    <form [formGroup]="feedform">
+        <mat-card>
+            <mat-card-content>
+                    <mat-form-field class="mat-form-field-infix-class">
+                        <input matInput formControlName="reviewerName" placeholder="Name">
+                         <mat-error *ngIf="feedform.get('reviewerName').errors?.required">
+                            Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                
+                    <mat-form-field>
+                        <input matInput formControlName="reviewerEmail" placeholder="Email">
+                         <mat-error *ngIf="feedform.get('reviewerEmail').errors?.required">
+                            Email Address is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                
+            <table>
+            <tr formArrayName="questionsAndAnswers" *ngFor="let name of feedform.get('questionsAndAnswers')['controls'];let i=index;">
+                    <td colspan="50">{{"Q."}}{{questions[i].questionDescription}}</td>
+                    <td [formGroupName]="i">
+                    <!-- <div [formGroupName]="i"> -->
+                    <mat-radio-group formControlName="rating">
+                        <mat-radio-button [value]=5>Very Likely</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button [value]=4>Good</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button [value]=3>Average</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button [value]=2>Not Bad</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button [value]=1>highly Unlikely</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                    </mat-radio-group>
+                    <!-- </div>> -->
+                    </td>
+            </tr>
+             <!-- <tr>
+                <td>
+                    {{this.questions[0].questionDescription}}
+                </td>&nbsp;
+                <td>
+                    <mat-radio-group formControlName="Q1">
+                        <mat-radio-button value=1>Some text1</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button value=2>Some text2</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button value=3>Some text3</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                    </mat-radio-group>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{this.questions[1].questionDescription}}
+                </td>&nbsp;
+                <td>
+                    <mat-radio-group formControlName="Q2">
+                        <mat-radio-button value=1>Some text1</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button value=2>Some text2</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button value=3>Some text3</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                    </mat-radio-group>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{this.questions[2].questionDescription}}
+                </td>&nbsp;
+                <td>
+                    <mat-radio-group formControlName="Q3">
+                        <mat-radio-button value=1>Some text1</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button value=2>Some text2</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button value=3>Some text3</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                    </mat-radio-group>
+                </td>
+            </tr>  -->
+            <tr>
+                <td>
+                    <mat-form-field class="mat-form-field-infix-class" style="width:500px">
+                        <textarea matInput placeholder="Enter Comments" formControlName="additonalComment"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+    <button mat-raised-button mat-button color="primary" class="submit" [disabled]="feedform.invalid || showprogressbar" (click)="saveFeedBack()">Submit</button>
+    </mat-card>
+    <!-- <button mat-raised-button class="submit" [disabled]="feedform.invalid" (click)="saveFeedBack()">Submit</button> -->
+    </form>
+  </mat-tab>
+</mat-tab-group>
+</div>

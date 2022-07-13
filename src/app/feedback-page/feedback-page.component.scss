@@ -1,0 +1,19 @@
+.mat-form-field-infix-class {
+    display:inline-block;
+    position: relative;
+    flex:auto;
+    text-align: left;
+    margin-right: 1.4%;
+}
+td{
+    justify-content: right;
+    align-items: right;
+}
+mat-card{
+    background-color:lightcyan;
+}
+.submit{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

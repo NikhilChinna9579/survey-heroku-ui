@@ -3,10 +3,12 @@
   "version": "14.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm start",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build",
+    "postinstall": "ng build --aot -prod"
   },
   "engines": {
     "node": ">=18.5.0",
@@ -28,7 +30,10 @@
     "ag-grid-community": "^28.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.4.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@angular/cli": "~14.0.5",
+    "@angular/compiler-cli": "^14.0.0",
+    "typescript": "~4.7.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.0.5",
